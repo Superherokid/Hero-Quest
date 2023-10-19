@@ -33,9 +33,11 @@ public class HeroQuest {
         int gold = 0;
         int xp = 0;
         int kills = 0;
+        int healSpell = 3;
+        int mana = 3;
         
         System.out.println("Welcome to Hero Quest! (Ver. 1.1");
-        System.out.println("This is a fantasy themed text based RPG");
+        System.out.println("This is a fantasy themed text based RPG ");
         System.out.println("What is your hero's name?");
         Scanner keyboard = new Scanner(System.in);
         String name = keyboard.next();
@@ -206,8 +208,8 @@ public class HeroQuest {
                         System.out.println();
                         System.out.println("[1] Attack with your Sword (1|10 + " + sword + " Damage)");
                         System.out.println("[2] Attack with your Bow (" + bow + " Damage) (" + arrows + " Arrows)");
-                        System.out.println("[3] Recover some health (" + (armor) + " Recovery)");
-                        System.out.println("[4] Give Up");
+                        System.out.println("[3] Cast your Healing Spell (" + healSpell + " Recovery) (" + mana + " Mana)" );
+                        System.out.println("[4] Give Up (Quit)");
                         System.out.println();
                         
                         weapon = keyboard.nextInt();
@@ -239,8 +241,8 @@ public class HeroQuest {
                                 
                                 break;
                             }
-                            case 3: {//defense
-                                System.out.println("[Oracle]: You recover [" + (armor ) + "] health");
+                            case 3: {//heal Spell
+                                System.out.println("[Oracle]: You recover [" +  healSpell + "] health");
                                 System.out.println("[Health]: " + health);
                                 System.out.println();
                                 damage = 0;
