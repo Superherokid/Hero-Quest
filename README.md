@@ -5,6 +5,8 @@ its a text based fantasy RPG
 
 first time using git hub so this might be wrong
 
+Youtube Update log Playlist: https://www.youtube.com/playlist?list=PL9RDBrOulfnAcbdRw3K-N5FazWOM4cVoR
+
 Story: You're quest is to return am amulet to your grandfather.
 
 Gameplay Loop: You can choose what you want to do on your quest. You can:
