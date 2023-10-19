@@ -16,7 +16,12 @@ import java.util.Scanner;
  * Ver. 1.1 
  *  - fully playable mostly bug free
  *  - Copeland first to end game
- *  - more features coming soon (Boss?!..)
+ *  - more features coming soon 
+ * 
+ * Ver 1.2
+ *  - replaced defending with healing spell
+ *  - adjusted the tower accordingly
+ *  - quality of life changes
  * 
  */
 public class HeroQuest {
@@ -35,8 +40,9 @@ public class HeroQuest {
         int kills = 0;
         int healSpell = 3;
         int mana = 3;
+        int manaMax = 3;
         
-        System.out.println("Welcome to Hero Quest! (Ver. 1.1");
+        System.out.println("Welcome to Hero Quest! (Ver. 1.2");
         System.out.println("This is a fantasy themed text based RPG ");
         System.out.println("What is your hero's name?");
         Scanner keyboard = new Scanner(System.in);
@@ -64,8 +70,9 @@ public class HeroQuest {
             System.out.println("Your sword does 1 to 10 damage, plus its upgrade level which is 1 at the begining.");
             System.out.println("Your bow does a consistant amount of damage depending on its upgrade level, which starts at level 6.");
             System.out.println("You bow also needs arrows and without them will result in a wasted turn.");
-            System.out.println("You can defend, which lets you recover health equal to your armor class.");
-            System.out.println("Lastly you can run which resuts in an open hit from the enemy.");
+            System.out.println("You can cast a healing spell which heals you depending on its level, it starts at level 3.");
+            System.out.println("You are limited by your mana, but it replinishes after each fight, you start with 3.");
+            System.out.println("Lastly you can run away which is a quit button.");
             System.out.println();
         } 
         System.out.println();   
@@ -79,13 +86,14 @@ public class HeroQuest {
         // do while loop for your turn choice with a switch case inside
         do {
             
-            int level = (xp/100);
+            int level = ((xp/100) + 1);
+            
             System.out.println("[Oracle]: What would you like to do " + name + "?");
             System.out.println();
-            System.out.println("[1] Venture forward on your quest");
-            System.out.println("[2] Visit a nearby town");
-            System.out.println("[3] Check your inventory");
-            System.out.println("[4] Abandon your quest");
+            System.out.println("  [1] Venture forward on your quest");
+            System.out.println("  [2] Visit a nearby town");
+            System.out.println("  [3] Check your inventory");
+            System.out.println("  [4] Abandon your quest");
             System.out.println();
             turn = keyboard.nextInt();
             
@@ -131,8 +139,8 @@ public class HeroQuest {
                             System.out.println("[Oracle]: You encounter a: GOBLIN ");
                             System.out.println("==============================================");
                             badHealth = random.nextInt(20, (30 + (sword)));
-                            min = (armor - 2);
-                            max = (8 + level);
+                            min = (armor - 3);
+                            max = (7 + level);
                             enemy = "Goblin";
                             event = 0;
                             break;
@@ -156,8 +164,8 @@ public class HeroQuest {
                             System.out.println("[Oracle]: You encounter an: ORC ");
                             System.out.println("==============================================");
                             badHealth = random.nextInt(20, (37 + (armor)));
-                            min = (armor - 1);
-                            max = (10 + level);
+                            min = (armor - 2);
+                            max = (9 + level);
                             enemy = "Orc";
                             event = 0;
                             break;
@@ -182,7 +190,7 @@ public class HeroQuest {
                            if (badDamage >=4) {
                              badDamage = 0;
                          } else {
-                             badDamage = (5 + level);
+                             badDamage = (3 + level);
                          }
                         } 
         
@@ -206,10 +214,10 @@ public class HeroQuest {
                         System.out.println();
                         System.out.println("[Oracle]: What do you want to do?");
                         System.out.println();
-                        System.out.println("[1] Attack with your Sword (1|10 + " + sword + " Damage)");
-                        System.out.println("[2] Attack with your Bow (" + bow + " Damage) (" + arrows + " Arrows)");
-                        System.out.println("[3] Cast your Healing Spell (" + healSpell + " Recovery) (" + mana + " Mana)" );
-                        System.out.println("[4] Give Up (Quit)");
+                        System.out.println("  [1] Attack with your Sword (1|10 + " + sword + " Damage)");
+                        System.out.println("  [2] Attack with your Bow (" + bow + " Damage) (" + arrows + " Arrows)");
+                        System.out.println("  [3] Cast your Healing Spell (" + healSpell + " Recovery) (" + mana + " Mana)" );
+                        System.out.println("  [4] Give Up (Quit)");
                         System.out.println();
                         
                         weapon = keyboard.nextInt();
@@ -242,14 +250,23 @@ public class HeroQuest {
                                 break;
                             }
                             case 3: {//heal Spell
-                                System.out.println("[Oracle]: You recover [" +  healSpell + "] health");
-                                System.out.println("[Health]: " + health);
-                                System.out.println();
                                 damage = 0;
-                                health = (health + armor);
+                                if (mana >= 1) {
+                                System.out.println("[Oracle]: You recover [" +  healSpell + "] health");
+                                health = (health + healSpell);
+                                mana = (mana - 1);
+                                System.out.println("[Health]: " + health);
+                                System.out.println("[Mana]: " + mana);
+                                System.out.println();
                                 if (health > healthMax){
                                     health = healthMax;
                                     System.out.println("[Oracle]: You're at Max Health");
+                                    System.out.println();
+                                }
+                                
+                                } else {
+                                    System.out.println("[Oracle]: You don't have any mana left...");
+                                    System.out.println("You wasted too much time.");
                                 }
                                 break;
                             } 
@@ -293,10 +310,16 @@ public class HeroQuest {
                         System.out.println("Gold: [" + gold + "] + " + reward);
                         System.out.println("XP: [" + xp + "] + " + reward);
                         System.out.println("Health: [" + health + "]");
+                        System.out.println();
+                        System.out.println("[Oracle]: Your mana has been replinished");
+                        mana = manaMax;
+                        System.out.println("[Mana]: " + mana);
+                        System.out.println();
                         
                         gold = (gold + reward);
                         xp = (xp + reward);
                         kills = (kills + 1);
+                        
                         // ending of fight
                     
                 }else {
@@ -412,12 +435,13 @@ public class HeroQuest {
                     System.out.println();
                     System.out.println("[Oracle]: This town looks very familiar. ");
                     System.out.println("[Gold]: " + gold);
+                    System.out.println();                  
                     System.out.println("[Oracle]: Where do you want to visit?");
-                    System.out.println("[1] The Local Inn ");
-                    System.out.println("[2] The Blacksmith");
-                    System.out.println("[3] The Market");
-                    System.out.println("[4] The Tower");
-                    System.out.println("[5] Leave the town");
+                    System.out.println("  [1] The Local Inn ");
+                    System.out.println("  [2] The Blacksmith");
+                    System.out.println("  [3] The Market");
+                    System.out.println("  [4] The Tower");
+                    System.out.println("  [5] Leave the town");
                     System.out.println();
                     
                     int shop = keyboard.nextInt();
@@ -459,11 +483,12 @@ public class HeroQuest {
                         case 2: { //The blacksmith
 
                             System.out.println("[The Blacksmith]: Upgrade your Sword and Armor");
-                            System.out.println("[Gold]: " + gold);                            
+                            System.out.println("[Gold]: " + gold);  
+                            System.out.println();
                             System.out.println("[Clint]: What can I do for ya?");
-                            System.out.println("[1]: Upgrade your armor (" + (armor * 10) + " Gold)");
-                            System.out.println("[2]: Upgrade your sword (" + (sword * 10) + " Gold)");
-                            System.out.println("[3]: Leave the store");
+                            System.out.println("  [1]: Upgrade your armor (" + (armor * 10) + " Gold)");
+                            System.out.println("  [2]: Upgrade your sword (" + (sword * 10) + " Gold)");
+                            System.out.println("  [3]: Leave the store");
                             int blacksmith = keyboard.nextInt();
                             
                             switch (blacksmith) {
@@ -505,11 +530,12 @@ public class HeroQuest {
                         case 3: { //The market
 
                             System.out.println("[The Market]: Upgrade your Bow and buy arrows");
-                            System.out.println("[Gold]: " + gold);                            
+                            System.out.println("[Gold]: " + gold); 
+                            System.out.println();
                             System.out.println("[Ethel]: Why hello dear, how can I help you?");
-                            System.out.println("[1]: Upgrade your Bow (" + (bow * 10) + " Gold)");
-                            System.out.println("[2]: Buy 3 arrows (30 Gold)");
-                            System.out.println("[3]: Leave the store");
+                            System.out.println("  [1]: Upgrade your Bow (" + (bow * 10) + " Gold)");
+                            System.out.println("  [2]: Buy 3 arrows (30 Gold)");
+                            System.out.println("  [3]: Leave the store");
                             int market = keyboard.nextInt();
                             
                             switch (market) {
@@ -549,27 +575,46 @@ public class HeroQuest {
                         }
                         case 4: { //the tower
 
-                            System.out.println("[The Tower]: (100 Gold) The wizard increases your max health");
-                            System.out.println("[Gold]: " + gold);                           
-                            System.out.println("[Harry]: Hey man, what's up?");
-                            System.out.println("[Harry]: Do you want to increase your max health: [yes] or [no]");
-                            yesNo = keyboard.next();
-        
-                            if (yesNo.equalsIgnoreCase("yes")){
-                                if (gold >= 100) {
-                                    healthMax = (healthMax + 1);
-                                    gold = (gold - 100);
-                                    System.out.println("You wake up feeling alive.");
-                                    System.out.println("[Harry]: Glad I could help");
-                                    System.out.println("[Max Health]: " + healthMax);
-                                    System.out.println("[Harry]: Come back and see me whenever.");
-                                } else {
-                                    System.out.println("[Oracle]: You can't afford that");
+                            System.out.println("[The Tower]: This is where you can upgrade your healing spell and mana");
+                            System.out.println("[Gold]: " + gold);
+                            System.out.println();
+                            System.out.println("[Hairy]: Hey man, what's up?");
+                            System.out.println("  [1]: Upgrade your spell (" + ((healSpell * 10)+ 5) + " Gold)");
+                            System.out.println("  [2]: Increase your maximum mana (" + (manaMax * 20) + ")");
+                            System.out.println("  [3]: Leave the store");
+                            int tower = keyboard.nextInt();
+                            
+                            switch (tower) {
+                                case 1: {
+                                    if (gold >= ((healSpell * 10)+ 5)) {
+                                        gold = (gold - ((healSpell * 10)+ 5));
+                                        healSpell = (healSpell + 1); 
+                                        System.out.println("[Hairy]: Your spell will be more powerful now.");
+                                        System.out.println("[Healing Spell]: " + healSpell + "Recovery");
+                                        System.out.println("[Hairy]: Alright my man come back and see me sometime");
+                                    } else {
+                                        System.out.println("[Oracle]: You can't afford that.");
+                                    }
+                                    break;
                                 }
-                            } else {
-                                System.out.println("[Oracle]: You leave the tower.");
-                                System.out.println("[Harry]: See you around.");
-                            }
+                                case 2: {
+                                    if (gold >= (manaMax * 20)) {
+                                        gold = (gold - (manaMax * 20));
+                                        manaMax = (manaMax + 1); 
+                                        System.out.println("[Hairy]: You can cast heal more now.");
+                                        System.out.println("[Mana]: " + manaMax);
+                                        System.out.println("[Hairy]:Alrighty now, I'll be talking to you later");
+                                    } else {
+                                        System.out.println("[Oracle]: You can't afford that.");
+                                    }
+                                    break;
+                                }
+                                case 3: {
+                                 System.out.println("[Oracle]: You leave the tower.");
+                                 System.out.println("[Hairy]: See you around."); 
+                                 break;
+                                }
+                            } 
                             break;
                         }
                         case 5: { //leave
@@ -594,19 +639,21 @@ public class HeroQuest {
                     System.out.println("[INVENTORY]");
                     System.out.println("================================");
                     System.out.println("[ITEMS]");
-                    System.out.println("[Armor]: Class " + armor);
-                    System.out.println("[Sword]: Level " + sword);
-                    System.out.println("[Bow]: Level " + bow);
-                    System.out.println("[Arrows]: " + arrows);
-                    System.out.println("[Amulet]: You notice the number 500 etched on the front");
-                    System.out.println("and there are 20 stones around the edge.");
+                    System.out.println("  [Armor Class]:" + armor);
+                    System.out.println("  [Sword]: Level " + sword);
+                    System.out.println("  [Bow]: Level " + bow);
+                    System.out.println("  [Arrows]: " + arrows);
+                    System.out.println("  [Healing Spell]: " + healSpell + " Recovery");
+                    System.out.println("  [Mana]: " + manaMax);
+                    System.out.println("  [Amulet]: You notice the number 500 etched on the front");
+                    System.out.println("  and there are 20 stones around the edge.");
                     System.out.println("================================");
                     System.out.println("[STATS]");
-                    System.out.println("[Health]: " + health);
-                    System.out.println("[Gold]: " + gold);
-                    System.out.println("[XP]: " + xp);
-                    System.out.println("[Level]: " + level);
-                    System.out.println("[Kills]: " + kills);
+                    System.out.println("  [Health]: " + health);
+                    System.out.println("  [Gold]: " + gold);
+                    System.out.println("  [XP]: " + xp);
+                    System.out.println("  [Level]: " + level);
+                    System.out.println("  [Kills]: " + kills);
                     System.out.println("================================");
                     System.out.println();
                     break;
