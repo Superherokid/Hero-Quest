@@ -37,7 +37,16 @@ import java.util.Scanner;
  *  - save state new game plus
  *  - New dog in the village
  *  - updated dialog
- *  - final game other than bug and balances
+ *  - Coepland and Alex Playtest
+ *  - Alecks Password:
+ * 42 28 56 14 49 98 133 448 6398 70 217 28 28 28
+ * 
+ * Ver. 1.5 
+ *  - FINAL VERSION
+ *  - Bug fixes, balances, and Quality of life 
+ *  - Updated dialog
+ *  - bosses more refined
+ *  - new game plus infinite boss
  */
 
 public class HeroQuest {
@@ -63,8 +72,8 @@ public class HeroQuest {
         
         
         
-        System.out.println("Welcome to Hero Quest! (Ver. 1.4)");
-        System.out.println("This is a fantasy themed text based RPG ");
+        System.out.println("Welcome to Hero Quest! (Ver. 1.5)");
+        System.out.println("This is a fantasy themed text based RPG. ");
         System.out.println("What is your hero's name?");
         Scanner keyboard = new Scanner(System.in);
         String name = keyboard.next();
@@ -78,25 +87,25 @@ public class HeroQuest {
             System.out.println("[Story]: You're quest is to return am amulet to your grandfather.");
             System.out.println();
             System.out.println("[Gameplay Loop]: You can choose what you want to do on your quest. You can: ");
-            System.out.println("  Venture forward: Does a random combat event where you fight an enemy and are rewarded");
-            System.out.println("  Go to the town: You can visit the town to upgrade all your gear, spells, purchase arrows, and sleep");
-            System.out.println("  Check your inventory: Shows all your gear's stats and your player stats ");
+            System.out.println("  Venture forward: Does a random combat event where you fight an enemy and are rewarded.");
+            System.out.println("  Go to the town: You can visit the town to upgrade all your gear, spells, purchase arrows, and sleep.");
+            System.out.println("  Check your inventory: Shows all your gear's stats and your player stats. ");
             System.out.println("  Abandon your quest: This is how to save and quit the game. ");
             System.out.println();
             System.out.println("=============================================================================");
             System.out.println();
-            System.out.println("[Combat]: You fight a random enemy with random health and random attacks all dependent on its type");
-            System.out.println("  Goblins: Regular enemy, nothing special");
-            System.out.println("  Skeletons: Use a bow so their damage is consistent during combat but they can miss");
-            System.out.println("  Orcs: Stronger version of goblins");
+            System.out.println("[Combat]: You fight a random enemy with random health and random attacks all dependent on its type.");
+            System.out.println("  Goblins: Regular enemy, nothing special.");
+            System.out.println("  Skeletons: Use a bow so their damage is consistent during combat but they can miss.");
+            System.out.println("  Orcs: Stronger version of goblins.");
             System.out.println();
             System.out.println("=============================================================================");
             System.out.println();
-            System.out.println("[Options on your turn]: The enemies next attack is always revealed and you attack first");
-            System.out.println("  Sword: 1 to 10 damage (1d10) plus your sword level ");
-            System.out.println("  Bow: consistant damge every turn, no randomization but it uses arrows ");
+            System.out.println("[Options on your turn]: The enemies next attack is always revealed and you attack first:");
+            System.out.println("  Sword: 1 to 10 damage (1d10) plus your sword level. ");
+            System.out.println("  Bow: consistant damge every turn, no randomization but it uses arrows. ");
             System.out.println("  Healing Spell: Recovers health equal to its current level, consumes Mana which is replenished at the end of each combat.");
-            System.out.println("  Run away: You run away but can't replenish your mana back so your next fight will be much harder");
+            System.out.println("  Run away: You run away but can't replenish your mana back so your next fight will be much harder.");
             System.out.println();
             
         } else {
@@ -161,7 +170,7 @@ public class HeroQuest {
                 System.out.println("[Level]: "+ level);
                 System.out.println("[Max Health]: "+healthMax + " + " + (level - levelUp));
                 healthMax = (10 + (level - 1)); // might lead to bug
-                System.out.println("[Oracle]: You feel much stronger");
+                System.out.println("[Oracle]: You feel much healthier");
                 System.out.println();
             }
             
@@ -177,7 +186,7 @@ public class HeroQuest {
             
             switch (turn) {
                 case 1: { //venture forward
-                    System.out.println("[Oracle]: You decide to continue your quest and venture into the forest");
+                    System.out.println("[Oracle]: You decide to continue your quest and venture into the forest.");
                     System.out.println();
 
                     //Start here with main code
@@ -198,9 +207,12 @@ public class HeroQuest {
                     if (kills == 30){ //stage 3 of boss fight
                         encounter = 13;   
                     }
-                    
-                    
-                    
+                    if (kills > 30) { //new game plus boss
+                        if ((kills % 10) == 0) {
+                        encounter = 14;
+                        }
+                    }
+
                     //start of a normal encounter
                     switch (encounter) {
                         case 1: // fall through to make goblin most common encounter
@@ -208,9 +220,9 @@ public class HeroQuest {
                         case 3:
                         case 4: {
                             //Goblin Encounter Code
-                            System.out.println("[Oracle]: You encounter a: GOBLIN ");
+                            System.out.println("[Oracle]: You encounter a: GOBLIN! ");
                             System.out.println("==============================================");
-                            badHealth = random.nextInt((20 + sword), 32);
+                            badHealth = random.nextInt((20 + sword), (32 + level));
                             min = (armor - 3);
                             max = (7 + level);
                             enemy = "Goblin";
@@ -221,9 +233,9 @@ public class HeroQuest {
                         case 6:
                         case 7: {
                             //Skeleton Encounter Code
-                            System.out.println("[Oracle]: You encounter a: SKELETON ");
+                            System.out.println("[Oracle]: You encounter a: SKELETON! ");
                             System.out.println("==============================================");
-                            badHealth = random.nextInt((18 + sword), 30);
+                            badHealth = random.nextInt((18 + sword), (30 + level));
                             min = 1;
                             max = 5;
                             enemy = "Skeleton";
@@ -233,9 +245,9 @@ public class HeroQuest {
                         case 8:
                         case 9: {
                             //Orc Encounter Code
-                            System.out.println("[Oracle]: You encounter an: ORC ");
+                            System.out.println("[Oracle]: You encounter an: ORC! ");
                             System.out.println("==============================================");
-                            badHealth = random.nextInt((20 + sword), 37);
+                            badHealth = random.nextInt((20 + sword), (38 + level));
                             min = (armor - 2);
                             max = (9 + level);
                             enemy = "Orc";
@@ -249,11 +261,12 @@ public class HeroQuest {
                             break;
                         }
                         case 11: { //boss fight stage 1
+                            System.out.println("==============================================");
                             System.out.println("[Oracle]: The ground shakes as you see trees colapse in the distance...");
                             System.out.println();
                             System.out.println("[Oracle]: You encounter: Hughmungus the Troll!");
                             System.out.println("==============================================");
-                            badHealth = random.nextInt(40, 50); //stage 1 health
+                            badHealth = random.nextInt(40, 55); //stage 1 health
                             min = 1; //throwing rocks
                             max = 3; 
                             enemy = "Troll";
@@ -261,34 +274,47 @@ public class HeroQuest {
                             break;    
                         }
                         case 12: { //boss fight stage 2
+                            System.out.println("==============================================");
                             System.out.println("[Oracle]: The ground shakes as you see trees colapse in the distance...");
                             System.out.println("[Oracle]: This time weilding a massive club...");
                             System.out.println();
                             System.out.println("[Oracle]: You encounter: Hughmungus the Troll!");
                             System.out.println("==============================================");
-                            badHealth = random.nextInt(45, 55); //stage 2 health
+                            badHealth = random.nextInt(50, 60); //stage 2 health
                             min = 1; //throwing rocks or club
-                            max = 6; 
+                            max = 8; 
                             enemy = "Troll";
                             event = 0;
                             break;    
                         }
                         case 13: { //boss fight stage 3
+                            System.out.println("==============================================");
                             System.out.println("[Oracle]: You crest a hill and there right where you remember it, is your grandfather's house!");
                             System.out.println("[Oracle]: Before you can make it...");
                             System.out.println("");
                             System.out.println("[Oracle]: The ground shakes as you see trees colapse in the distance...");
-                            System.out.println("[Oracle]: He has armor on...");
+                            System.out.println("[Oracle]: This time with armor on...");
                             System.out.println();
                             System.out.println("[Oracle]: You encounter: Hughmungus the Troll!");
                             System.out.println("==============================================");
-                            badHealth = random.nextInt(50,55); //stage 3 health
+                            badHealth = random.nextInt(60,65); //stage 3 health
                             min = 1; //throwing rocks or club
-                            max = 6; 
+                            max = 10; 
                             enemy = "Troll";
                             event = 0;
-                            badArmor = 3;
+                            badArmor = sword;
                             break;    
+                        }
+                        case 14: {
+                        System.out.println("[Oracle]: You encounter a: Troll!");
+                            System.out.println("==============================================");
+                            badHealth = random.nextInt(55,(65 + level)); //stage 3 health
+                            min = 1; //throwing rocks or club
+                            max = (3 + level); 
+                            enemy = "Troll";
+                            event = 0;
+                            badArmor = sword;
+                            break;
                         }
                              
                     }
@@ -318,14 +344,16 @@ public class HeroQuest {
                                System.out.println("[Oracle]: Hughmungus lifts up his huge club...");
                                System.out.println();
                          } else {
-                             badDamage = 7; //rock
+                             badDamage = (armor + 3); //rock
                              System.out.println("[Oracle]: Hughmungus picks up a rock...");
                              System.out.println();
                          }
                         } 
         
                         //health clues feeling
-                        if (badHealth >48 ) {
+                        if (badHealth >55){
+                            feeling = "insane";
+                       } else if (badHealth >48 ) {
                             feeling = "huge";
                        } else if (badHealth > 40){
                             feeling = "tough";
@@ -369,8 +397,8 @@ public class HeroQuest {
                                 damage = (damage + sword);
                                 System.out.println("[Oracle]: You hit the "+ enemy +" with your sword for [" + damage + " Damage]");
                                 if (kills == 30) {
-                                    System.out.println("[Oracle]: His armor blocks [3] of that damage...");
-                                    damage = (damage - 3);
+                                    System.out.println("[Oracle]: His armor blocks ["+ badArmor +"] of that damage...");
+                                    damage = (damage - badArmor);
                                 }
                                 System.out.println();
                                 break;
@@ -459,7 +487,7 @@ public class HeroQuest {
                                 System.out.println("[Oracle]: You look down and see its glowing bright green!");
                                 System.out.println("[Oracle]: Before you can react, Hughmungus runs back into the forest, out of your sight."); 
                                 System.out.println();
-                                System.out.println("[Oracle]: It was a hard fought battle, but you feel much stronger");
+                                System.out.println("[Oracle]: It was a hard fought battle, but you feel much stronger.");
                                 strength = (strength + 1);
                                 System.out.println("[Strength]: " + (strength));
                                 System.out.println();
@@ -471,7 +499,7 @@ public class HeroQuest {
                                 System.out.println("[Oracle]: Before you can react, Hughmungus runs back into the forest, out of your sight.");
                                 System.out.println("[Oracle]: You're not quite sure what this could mean...");
                                 System.out.println();
-                                System.out.println("[Oracle]: It was a hard fought battle yet again, but you feel even stronger");
+                                System.out.println("[Oracle]: It was a hard fought battle yet again, but you feel even stronger.");
                                 strength = (strength + 1);
                                 System.out.println("[Strength]: " + (strength));
                                 System.out.println();
@@ -485,21 +513,32 @@ public class HeroQuest {
                                 System.out.println("[Oracle]: The amulet rises up out of your hand and floats toward the giant troll. ");
                                 System.out.println("[Oracle]: The amulet places itself on the troll and Hughmungus slowly begins to transfer into a human...");
                                 System.out.println();
-                                System.out.println("[Grandfather]: I knew you could do it " + name);
+                                System.out.println("[Grandfather]: I knew you could do it " + name + ".");
                                 System.out.println("[Oracle]: You turn around to find your grandfather right behind you!");
                                 System.out.println("[Grandfather]: That amulet right there was the only cure for him, it was my only hope to get my brother back... ");
-                                System.out.println("[Oracle]: At that moment out of the fog where Hughmungus just stood walks out your Great Uncle Parrish");
+                                System.out.println("[Oracle]: At that moment out of the fog where Hughmungus just stood walks out your Great Uncle Parrish.");
                                 System.out.println("[Parrish]: Elder my brother, it is so nice to finally see you again.");
                                 System.out.println("[Parrish]: And look at this guy, they really do grow up fast don't they!");
                                 System.out.println("[Parrish]: "+ name + " I cannot thank you enough for freeing my from that curse.");
-                                System.out.println("[Grandfather]: I'm just glad to have my brother back, can't thank you enough for your help " + name);
+                                System.out.println("[Grandfather]: I'm just glad to have my brother back, I can't thank you enough for your help " + name + ".");
                                 System.out.println("=====================================================================================================");
 
-                                System.out.println("[Oracle]: It was a hard fought battle, but it was one worth fighting for");
+                                System.out.println("[Oracle]: It was a hard fought battle, but it was one worth fighting for!");
                                 strength = (strength + 1);
                                 System.out.println("[Strength]: " + (strength));
                                 System.out.println();
                                 active = 1;
+                               }
+                               if (kills > 30) {
+                                   System.out.println("=====================================================================================================");
+                                System.out.println();
+                                System.out.println("[Oracle]: These trolls are getting tough, but you can handle it.");
+                                if (strength < 9) {
+                                   strength = (strength + 1);
+                                    System.out.println("[Strength]: " + (strength));
+                                    System.out.println(); 
+                                }
+                                
                                }
                                 
                             } else {
@@ -678,6 +717,8 @@ public class HeroQuest {
                                     System.out.println("[Health]: " + health);
                                     System.out.println("[Mana]: " + mana);
                                     System.out.println("[Craig]: Come back and see me again!");
+                                    System.out.println("[Craig]: Just a quick tip, you can always try and save enough gold to spend the night.");
+                                    System.out.println("[Craig]: You never know when you might need it, I like to call it, Inn-Surance. ");
                                 } else {
                                     System.out.println("[Oracle]: You can't afford that");
                                 }
@@ -754,7 +795,7 @@ public class HeroQuest {
                                        bow = (bow + 1);
                                        arrows = (arrows + 2);
                                        System.out.println("[Ethel]: That should help you out dear.");
-                                       System.out.println("[Ethel]: I threw in a couple arrows too, that work real good against armor");
+                                       System.out.println("[Ethel]: I threw in a couple arrows too. They work real good against armor.");
                                        System.out.println("[Bow]: " + bow);
                                        System.out.println("[Arrows]: " + arrows);
                                        System.out.println("[Ethel]: Stay safe dear.");
@@ -787,7 +828,7 @@ public class HeroQuest {
                         }
                         case 4: { //the tower
 
-                            System.out.println("[The Tower]: This is where you can upgrade your healing spell and mana");
+                            System.out.println("[The Tower]: This is where you can upgrade your healing spell and mana.");
                             System.out.println("[Gold]: " + gold);
                             System.out.println();
                             System.out.println("[Hairy]: Hey man, what's up?");
@@ -803,7 +844,7 @@ public class HeroQuest {
                                         healSpell = (healSpell + 1); 
                                         System.out.println("[Hairy]: Your spell will be more powerful now.");
                                         System.out.println("[Healing Spell]: " + healSpell + " Recovery");
-                                        System.out.println("[Hairy]: Alright my man come back and see me sometime");
+                                        System.out.println("[Hairy]: Alright my man come back and see me sometime.");
                                     } else {
                                         System.out.println("[Oracle]: You can't afford that.");
                                     }
@@ -811,11 +852,11 @@ public class HeroQuest {
                                 }
                                 case 2: {
                                     if (gold >= (manaMax * 15)) {
-                                        gold = (gold - (manaMax * 20));
+                                        gold = (gold - (manaMax * 15));
                                         manaMax = (manaMax + 1); 
                                         System.out.println("[Hairy]: You can cast heal more now.");
                                         System.out.println("[Mana]: " + manaMax);
-                                        System.out.println("[Hairy]: Alrighty now, I'll be talking to you later");
+                                        System.out.println("[Hairy]: Alrighty now, I'll be talking to you later.");
                                     } else {
                                         System.out.println("[Oracle]: You can't afford that.");
                                     }
@@ -875,6 +916,13 @@ public class HeroQuest {
                     System.out.println("  [Healing Spell]: " + healSpell + " Recovery");
                     System.out.println("  [Mana]: " + manaMax);
                     System.out.println("  [Amulet]: There are 10 markings around the edge with 3 stones in the middle");
+                    if (kills > 30) {
+                        System.out.println("All three stones are glowing, it feels powerful.");
+                    } else if (kills > 20) {
+                        System.out.println("Two tones glow, one red and one green.");
+                    } else if (kills > 10) {
+                        System.out.println("One stone glows bring green.");
+                    }
                     System.out.println("================================");
                     System.out.println("[STATS]");
                     System.out.println("  [Health]: " + health);
@@ -933,10 +981,10 @@ public class HeroQuest {
         
         System.out.println("=======================================================");
         System.out.println(); 
-        System.out.println("Thank you for playing Hero Quest Ver 1.4");
+        System.out.println("Thank you for playing Hero Quest Ver 1.5");
         System.out.println("I hope you have enjoyed your time playing");
         System.out.println();
-        System.out.println("Feel free to start over or play new game plus with your loadout with you SaveState Code ");
+        System.out.println("Feel free to start over or play new game plus with your loadout with you SaveState Password ");
         
         //encryption
                     sword = (sword * 7) ;
