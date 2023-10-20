@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- *
+ * 42 28 56 14 56 112 140 448 7063 77 238 28 28 28
  * @author Ben Frey
  * Start: October 13th 2023
  * Finished: October 16th 2023
@@ -37,7 +37,7 @@ import java.util.Scanner;
  *  - save state new game plus
  *  - New dog in the village
  *  - updated dialog
- *  - Coepland and Alex Playtest
+ *  - Copeland and Alex Lets Play
  *  - Alecks Password:
  * 42 28 56 14 49 98 133 448 6398 70 217 28 28 28
  * 

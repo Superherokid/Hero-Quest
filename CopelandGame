@@ -1,0 +1,1097 @@
+cd C:\java1\SuperGames\HeroQuest; JAVA_HOME=C:\\ cmd /c "\"C:\\Program Files\\NetBeans-18\\netbeans\\java\\maven\\bin\\mvn.cmd\" -Dexec.vmArgs= \"-Dexec.args=${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}\" -Dexec.appArgs= -Dexec.mainClass=supergames.heroquest.HeroQuest -Dexec.executable=java \"-Dmaven.ext.class.path=C:\\Program Files\\NetBeans-18\\netbeans\\java\\maven-nblib\\netbeans-eventspy.jar\" -Dfile.encoding=UTF-8 --no-transfer-progress process-classes org.codehaus.mojo:exec-maven-plugin:3.1.0:exec"
+Scanning for projects...
+
+------------------------< SuperGames:HeroQuest >------------------------
+Building HeroQuest 1.0-SNAPSHOT
+  from pom.xml
+--------------------------------[ jar ]---------------------------------
+
+--- resources:3.3.0:resources (default-resources) @ HeroQuest ---
+skip non existing resourceDirectory C:\java1\SuperGames\HeroQuest\src\main\resources
+
+--- compiler:3.10.1:compile (default-compile) @ HeroQuest ---
+Nothing to compile - all classes are up to date
+
+--- exec:3.1.0:exec (default-cli) @ HeroQuest ---
+Welcome to Hero Quest! (ver. 1.1
+This is a fantasy themed text based RPG
+What is your hero's name?
+Hughmungus
+[Oracle]: Hello Hughmungus I will help you through your journey.
+[Oracle]: Have your played before: [yes] or [no]
+no
+
+[Oracle]: Your quest is to travel to your Grandfather's house to return his amulet
+=========================================================================
+You can venture further to your grandfather but might run into trouble
+You can visit towns along the way to upgrade your gear, health and sleep
+You can check your inventory to see your gear and all your stats
+Lastly you can leave when ever and you will be given a score
+I wish you luck, make your Grandfather proud. Stay strong.
+
+[Oracle]: Combat is fairly straight forward, it goes as follows:
+==========================================================
+You will fight an enemy with random health and damage depending on their type.
+You will have the choice each turn on what you want to do depending on the enemy's action.
+The enemy's next attack is revealed. Your armor subtracts damage from the enemy's attack.
+
+Your sword does 1 to 10 damage, plus its upgrade level which is 1 at the begining.
+Your bow does a consistant amount of damage depending on its upgrade level, which starts at level 6.
+You bow also needs arrows and without them will result in a wasted turn.
+You can defend, which lets you recover health equal to your armor class.
+Lastly you can run which resuts in an open hit from the enemy.
+
+
+[Oracle]: And so your journey begins...
+=====================================
+[Oracle]: What would you like to do Hughmungus?
+
+[1] Venture forward on your quest
+[2] Visit a nearby town
+[3] Check your inventory
+[4] Abandon your quest
+
+3
+[Oracle]: You decide to check your inventory
+
+[INVENTORY]
+================================
+[ITEMS]
+[Armor]: Class 3
+[Sword]: Level 1
+[Bow]: Level 6
+[Arrows]: 3
+[Amulet]: You notice the number 500 etched on the front
+and there are 20 stones around the edge.
+================================
+[STATS]
+[Health]: 10
+[Gold]: 0
+[XP]: 0
+[Level]: 0
+[Kills]: 0
+================================
+
+[Oracle]: What would you like to do Hughmungus?
+
+[1] Venture forward on your quest
+[2] Visit a nearby town
+[3] Check your inventory
+[4] Abandon your quest
+
+1
+[Oracle]: You decide to continue your quest and venture into the forest
+
+[Oracle]: You encounter a: SKELETON 
+==============================================
+[Oracle]: The Skeleton looks alright...
+[Oracle]: It will be attacking you for: [5] damage on its turn
+
+[Health]: 10
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 1 Damage)
+[2] Attack with your Bow (6 Damage) (3 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Skeleton with your sword for [10 Damage]
+
+[Oracle]: The Skeleton hits you. You take [2] Damage
+
+[Oracle]: The Skeleton looks alright...
+[Oracle]: It will be attacking you for: [5] damage on its turn
+
+[Health]: 8
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 1 Damage)
+[2] Attack with your Bow (6 Damage) (3 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Skeleton with your sword for [6 Damage]
+
+[Oracle]: The Skeleton hits you. You take [2] Damage
+
+[Oracle]: The Skeleton looks weak...
+[Oracle]: It will be attacking you for: [5] damage on its turn
+
+[Health]: 6
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 1 Damage)
+[2] Attack with your Bow (6 Damage) (3 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+2
+==============================================
+[Oracle]: You hit the Skeleton with an arrow for [6] Damage
+
+[Oracle]: The Skeleton has passed...
+
+Gold: [0] + 18
+XP: [0] + 18
+Health: [6]
+[Oracle]: What would you like to do Hughmungus?
+
+[1] Venture forward on your quest
+[2] Visit a nearby town
+[3] Check your inventory
+[4] Abandon your quest
+
+2
+[Oracle]: You decide to find a town
+=======================================
+
+[Gold]: 18
+[Oracle]: This town looks very familiar. 
+[Oracle]: Where do you want to visit?
+[1] The Local Inn 
+[2] The Blacksmith
+[3] The Market
+[4] The Tower
+[5] Leave the town
+
+2
+=======================================
+[Gold]: 18
+[The Blacksmith]: Upgrade your Sword and Armor
+[Clint]: What can I do for ya?
+[1]: Upgrade your armor (30 Gold)
+[2]: Upgrade your sword (10 Gold)
+[3]: Leave the store
+2
+[Clint]: This sword sure will hurt.
+[Sword]: 2
+[Clint]: See ya later.
+=======================================
+
+[Gold]: 8
+[Oracle]: This town looks very familiar. 
+[Oracle]: Where do you want to visit?
+[1] The Local Inn 
+[2] The Blacksmith
+[3] The Market
+[4] The Tower
+[5] Leave the town
+
+3
+=======================================
+[Gold]: 8
+[The Market]: Upgrade your Bow and buy arrows
+[Ethel]: Why hello dear, how can I help you?
+[1]: Upgrade your Bow (60 Gold)
+[2]: Buy an arrow (20 Gold)
+[3]: Leave the store
+3
+[Oracle]: You leave the market
+[Ethel]: Look forward to seeing you again.
+=======================================
+
+[Gold]: 8
+[Oracle]: This town looks very familiar. 
+[Oracle]: Where do you want to visit?
+[1] The Local Inn 
+[2] The Blacksmith
+[3] The Market
+[4] The Tower
+[5] Leave the town
+
+4
+=======================================
+[Gold]: 8
+[The Tower]: (100 Gold) The wizard increases your max health
+[Harry]: Hey man, what's up?
+[Harry]: Do you want to increase your max health: [yes] or [no]
+yes
+[Oracle]: You can't afford that
+=======================================
+
+[Gold]: 8
+[Oracle]: This town looks very familiar. 
+[Oracle]: Where do you want to visit?
+[1] The Local Inn 
+[2] The Blacksmith
+[3] The Market
+[4] The Tower
+[5] Leave the town
+
+1
+=======================================
+[Gold]: 8
+[The local Inn]: (25 Gold) Heals to max health
+[Craig]: Hello, welcome to the Inn!
+[Craig]: Do you want to stay for the night: [yes] or [no]
+no
+[Oracle]: You leave the Inn.
+[Craig]: Hope to see you back.
+=======================================
+
+[Gold]: 8
+[Oracle]: This town looks very familiar. 
+[Oracle]: Where do you want to visit?
+[1] The Local Inn 
+[2] The Blacksmith
+[3] The Market
+[4] The Tower
+[5] Leave the town
+
+5
+=======================================
+[Oracle]: You leave the town
+[Oracle]: What would you like to do Hughmungus?
+
+[1] Venture forward on your quest
+[2] Visit a nearby town
+[3] Check your inventory
+[4] Abandon your quest
+
+3
+[Oracle]: You decide to check your inventory
+
+[INVENTORY]
+================================
+[ITEMS]
+[Armor]: Class 3
+[Sword]: Level 2
+[Bow]: Level 6
+[Arrows]: 2
+[Amulet]: You notice the number 500 etched on the front
+and there are 20 stones around the edge.
+================================
+[STATS]
+[Health]: 6
+[Gold]: 8
+[XP]: 18
+[Level]: 0
+[Kills]: 1
+================================
+
+[Oracle]: What would you like to do Hughmungus?
+
+[1] Venture forward on your quest
+[2] Visit a nearby town
+[3] Check your inventory
+[4] Abandon your quest
+
+1
+[Oracle]: You decide to continue your quest and venture into the forest
+
+[Oracle]: You encounter a: GOBLIN 
+==============================================
+[Oracle]: The Goblin looks sturdy...
+[Oracle]: It will be attacking you for: [2] damage on its turn
+
+[Health]: 6
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (2 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+3
+==============================================
+[Oracle]: You recover [3] health
+
+[Oracle]: Your armor fully protected you. No damage taken.
+
+[Oracle]: The Goblin looks sturdy...
+[Oracle]: It will be attacking you for: [7] damage on its turn
+
+[Health]: 9
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (2 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Goblin with your sword for [2 Damage]
+
+[Oracle]: The Goblin hits you. You take [4] Damage
+
+[Oracle]: The Goblin looks alright...
+[Oracle]: It will be attacking you for: [4] damage on its turn
+
+[Health]: 5
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (2 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+3
+==============================================
+[Oracle]: You recover [3] health
+
+[Oracle]: The Goblin hits you. You take [1] Damage
+
+[Oracle]: The Goblin looks alright...
+[Oracle]: It will be attacking you for: [6] damage on its turn
+
+[Health]: 7
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (2 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+3
+==============================================
+[Oracle]: You recover [3] health
+
+[Oracle]: The Goblin hits you. You take [3] Damage
+
+[Oracle]: The Goblin looks alright...
+[Oracle]: It will be attacking you for: [2] damage on its turn
+
+[Health]: 7
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (2 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Goblin with your sword for [8 Damage]
+
+[Oracle]: Your armor fully protected you. No damage taken.
+
+[Oracle]: The Goblin looks alright...
+[Oracle]: It will be attacking you for: [6] damage on its turn
+
+[Health]: 7
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (2 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+3
+==============================================
+[Oracle]: You recover [3] health
+
+[Oracle]: The Goblin hits you. You take [3] Damage
+
+[Oracle]: The Goblin looks alright...
+[Oracle]: It will be attacking you for: [4] damage on its turn
+
+[Health]: 7
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (2 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+3
+==============================================
+[Oracle]: You recover [3] health
+
+[Oracle]: The Goblin hits you. You take [1] Damage
+
+[Oracle]: The Goblin looks alright...
+[Oracle]: It will be attacking you for: [1] damage on its turn
+
+[Health]: 9
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (2 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Goblin with your sword for [3 Damage]
+
+[Oracle]: Your armor fully protected you. No damage taken.
+
+[Oracle]: The Goblin looks weak...
+[Oracle]: It will be attacking you for: [5] damage on its turn
+
+[Health]: 9
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (2 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+2
+==============================================
+[Oracle]: You hit the Goblin with an arrow for [6] Damage
+
+[Oracle]: The Goblin hits you. You take [2] Damage
+
+[Oracle]: The Goblin looks weak...
+[Oracle]: It will be attacking you for: [2] damage on its turn
+
+[Health]: 7
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (1 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+3
+==============================================
+[Oracle]: You recover [3] health
+
+[Oracle]: Your armor fully protected you. No damage taken.
+
+[Oracle]: The Goblin looks weak...
+[Oracle]: It will be attacking you for: [4] damage on its turn
+
+[Health]: 10
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (1 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Goblin with your sword for [4 Damage]
+
+[Oracle]: The Goblin has passed...
+
+Gold: [8] + 20
+XP: [18] + 20
+Health: [10]
+[Oracle]: What would you like to do Hughmungus?
+
+[1] Venture forward on your quest
+[2] Visit a nearby town
+[3] Check your inventory
+[4] Abandon your quest
+
+1
+[Oracle]: You decide to continue your quest and venture into the forest
+
+[Oracle]: You encounter a: GOBLIN 
+==============================================
+[Oracle]: The Goblin looks strong...
+[Oracle]: It will be attacking you for: [6] damage on its turn
+
+[Health]: 10
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (1 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Goblin with your sword for [10 Damage]
+
+[Oracle]: The Goblin hits you. You take [3] Damage
+
+[Oracle]: The Goblin looks sturdy...
+[Oracle]: It will be attacking you for: [3] damage on its turn
+
+[Health]: 7
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (1 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+3
+==============================================
+[Oracle]: You recover [3] health
+
+[Oracle]: Your armor fully protected you. No damage taken.
+
+[Oracle]: The Goblin looks sturdy...
+[Oracle]: It will be attacking you for: [0] damage on its turn
+
+[Health]: 10
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (1 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Goblin with your sword for [4 Damage]
+
+[Oracle]: Your armor fully protected you. No damage taken.
+
+[Oracle]: The Goblin looks alright...
+[Oracle]: It will be attacking you for: [6] damage on its turn
+
+[Health]: 10
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (1 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Goblin with your sword for [3 Damage]
+
+[Oracle]: The Goblin hits you. You take [3] Damage
+
+[Oracle]: The Goblin looks alright...
+[Oracle]: It will be attacking you for: [7] damage on its turn
+
+[Health]: 7
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (1 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+3
+==============================================
+[Oracle]: You recover [3] health
+
+[Oracle]: The Goblin hits you. You take [4] Damage
+
+[Oracle]: The Goblin looks alright...
+[Oracle]: It will be attacking you for: [0] damage on its turn
+
+[Health]: 6
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (1 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Goblin with your sword for [2 Damage]
+
+[Oracle]: Your armor fully protected you. No damage taken.
+
+[Oracle]: The Goblin looks alright...
+[Oracle]: It will be attacking you for: [7] damage on its turn
+
+[Health]: 6
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (1 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+3
+==============================================
+[Oracle]: You recover [3] health
+
+[Oracle]: The Goblin hits you. You take [4] Damage
+
+[Oracle]: The Goblin looks alright...
+[Oracle]: It will be attacking you for: [0] damage on its turn
+
+[Health]: 5
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (1 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+3
+==============================================
+[Oracle]: You recover [3] health
+
+[Oracle]: Your armor fully protected you. No damage taken.
+
+[Oracle]: The Goblin looks alright...
+[Oracle]: It will be attacking you for: [2] damage on its turn
+
+[Health]: 8
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (1 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+3
+==============================================
+[Oracle]: You recover [3] health
+
+[Oracle]: You're at Max Health
+[Oracle]: Your armor fully protected you. No damage taken.
+
+[Oracle]: The Goblin looks alright...
+[Oracle]: It will be attacking you for: [4] damage on its turn
+
+[Health]: 10
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (1 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Goblin with your sword for [3 Damage]
+
+[Oracle]: The Goblin hits you. You take [1] Damage
+
+[Oracle]: The Goblin looks alright...
+[Oracle]: It will be attacking you for: [3] damage on its turn
+
+[Health]: 9
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (1 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Goblin with your sword for [4 Damage]
+
+[Oracle]: Your armor fully protected you. No damage taken.
+
+[Oracle]: The Goblin looks weak...
+[Oracle]: It will be attacking you for: [7] damage on its turn
+
+[Health]: 9
+[Armor]:3
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 2 Damage)
+[2] Attack with your Bow (6 Damage) (1 Arrows)
+[3] Recover some health (3 Recovery)
+[4] Give Up
+
+2
+==============================================
+[Oracle]: You hit the Goblin with an arrow for [6] Damage
+
+[Oracle]: The Goblin has passed...
+
+Gold: [28] + 30
+XP: [38] + 30
+Health: [9]
+[Oracle]: What would you like to do Hughmungus?
+
+[1] Venture forward on your quest
+[2] Visit a nearby town
+[3] Check your inventory
+[4] Abandon your quest
+
+2
+[Oracle]: You decide to find a town
+=======================================
+
+[Gold]: 58
+[Oracle]: This town looks very familiar. 
+[Oracle]: Where do you want to visit?
+[1] The Local Inn 
+[2] The Blacksmith
+[3] The Market
+[4] The Tower
+[5] Leave the town
+
+2
+=======================================
+[Gold]: 58
+[The Blacksmith]: Upgrade your Sword and Armor
+[Clint]: What can I do for ya?
+[1]: Upgrade your armor (30 Gold)
+[2]: Upgrade your sword (20 Gold)
+[3]: Leave the store
+1
+[Clint]: That should keep you a little safer.
+[Armor]: 4
+[Clint]: Hope to see ya again.
+=======================================
+
+[Gold]: 28
+[Oracle]: This town looks very familiar. 
+[Oracle]: Where do you want to visit?
+[1] The Local Inn 
+[2] The Blacksmith
+[3] The Market
+[4] The Tower
+[5] Leave the town
+
+3
+=======================================
+[Gold]: 28
+[The Market]: Upgrade your Bow and buy arrows
+[Ethel]: Why hello dear, how can I help you?
+[1]: Upgrade your Bow (60 Gold)
+[2]: Buy an arrow (20 Gold)
+[3]: Leave the store
+3
+[Oracle]: You leave the market
+[Ethel]: Look forward to seeing you again.
+=======================================
+
+[Gold]: 28
+[Oracle]: This town looks very familiar. 
+[Oracle]: Where do you want to visit?
+[1] The Local Inn 
+[2] The Blacksmith
+[3] The Market
+[4] The Tower
+[5] Leave the town
+
+2
+=======================================
+[Gold]: 28
+[The Blacksmith]: Upgrade your Sword and Armor
+[Clint]: What can I do for ya?
+[1]: Upgrade your armor (40 Gold)
+[2]: Upgrade your sword (20 Gold)
+[3]: Leave the store
+2
+[Clint]: This sword sure will hurt.
+[Sword]: 3
+[Clint]: See ya later.
+=======================================
+
+[Gold]: 8
+[Oracle]: This town looks very familiar. 
+[Oracle]: Where do you want to visit?
+[1] The Local Inn 
+[2] The Blacksmith
+[3] The Market
+[4] The Tower
+[5] Leave the town
+
+5
+=======================================
+[Oracle]: You leave the town
+[Oracle]: What would you like to do Hughmungus?
+
+[1] Venture forward on your quest
+[2] Visit a nearby town
+[3] Check your inventory
+[4] Abandon your quest
+
+3
+[Oracle]: You decide to check your inventory
+
+[INVENTORY]
+================================
+[ITEMS]
+[Armor]: Class 4
+[Sword]: Level 3
+[Bow]: Level 6
+[Arrows]: 0
+[Amulet]: You notice the number 500 etched on the front
+and there are 20 stones around the edge.
+================================
+[STATS]
+[Health]: 9
+[Gold]: 8
+[XP]: 68
+[Level]: 0
+[Kills]: 3
+================================
+
+[Oracle]: What would you like to do Hughmungus?
+
+[1] Venture forward on your quest
+[2] Visit a nearby town
+[3] Check your inventory
+[4] Abandon your quest
+
+1
+[Oracle]: You decide to continue your quest and venture into the forest
+
+[Oracle]: You encounter a: SKELETON 
+==============================================
+[Oracle]: The Skeleton looks sturdy...
+[Oracle]: It will be attacking you for: [5] damage on its turn
+
+[Health]: 9
+[Armor]:4
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 3 Damage)
+[2] Attack with your Bow (6 Damage) (0 Arrows)
+[3] Recover some health (4 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Skeleton with your sword for [5 Damage]
+
+[Oracle]: The Skeleton hits you. You take [1] Damage
+
+[Oracle]: The Skeleton looks alright...
+[Oracle]: It will be attacking you for: [5] damage on its turn
+
+[Health]: 8
+[Armor]:4
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 3 Damage)
+[2] Attack with your Bow (6 Damage) (0 Arrows)
+[3] Recover some health (4 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Skeleton with your sword for [8 Damage]
+
+[Oracle]: The Skeleton hits you. You take [1] Damage
+
+[Oracle]: The Skeleton looks weak...
+[Oracle]: It will be attacking you for: [5] damage on its turn
+
+[Health]: 7
+[Armor]:4
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 3 Damage)
+[2] Attack with your Bow (6 Damage) (0 Arrows)
+[3] Recover some health (4 Recovery)
+[4] Give Up
+
+3
+==============================================
+[Oracle]: You recover [4] health
+
+[Oracle]: You're at Max Health
+[Oracle]: The Skeleton hits you. You take [1] Damage
+
+[Oracle]: The Skeleton looks weak...
+[Oracle]: It will be attacking you for: [5] damage on its turn
+
+[Health]: 9
+[Armor]:4
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 3 Damage)
+[2] Attack with your Bow (6 Damage) (0 Arrows)
+[3] Recover some health (4 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Skeleton with your sword for [5 Damage]
+
+[Oracle]: The Skeleton hits you. You take [1] Damage
+
+[Oracle]: The Skeleton looks weak...
+[Oracle]: It will be attacking you for: [0] damage on its turn
+
+[Health]: 8
+[Armor]:4
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 3 Damage)
+[2] Attack with your Bow (6 Damage) (0 Arrows)
+[3] Recover some health (4 Recovery)
+[4] Give Up
+
+3
+==============================================
+[Oracle]: You recover [4] health
+
+[Oracle]: You're at Max Health
+[Oracle]: Your armor fully protected you. No damage taken.
+
+[Oracle]: The Skeleton looks weak...
+[Oracle]: It will be attacking you for: [5] damage on its turn
+
+[Health]: 10
+[Armor]:4
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 3 Damage)
+[2] Attack with your Bow (6 Damage) (0 Arrows)
+[3] Recover some health (4 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Skeleton with your sword for [10 Damage]
+
+[Oracle]: The Skeleton has passed...
+
+Gold: [8] + 19
+XP: [68] + 19
+Health: [10]
+[Oracle]: What would you like to do Hughmungus?
+
+[1] Venture forward on your quest
+[2] Visit a nearby town
+[3] Check your inventory
+[4] Abandon your quest
+
+1
+[Oracle]: You decide to continue your quest and venture into the forest
+
+[Oracle]: You encounter a: SKELETON 
+==============================================
+[Oracle]: The Skeleton looks alright...
+[Oracle]: It will be attacking you for: [5] damage on its turn
+
+[Health]: 10
+[Armor]:4
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 3 Damage)
+[2] Attack with your Bow (6 Damage) (0 Arrows)
+[3] Recover some health (4 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Skeleton with your sword for [2 Damage]
+
+[Oracle]: The Skeleton hits you. You take [1] Damage
+
+[Oracle]: The Skeleton looks alright...
+[Oracle]: It will be attacking you for: [0] damage on its turn
+
+[Health]: 9
+[Armor]:4
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 3 Damage)
+[2] Attack with your Bow (6 Damage) (0 Arrows)
+[3] Recover some health (4 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Skeleton with your sword for [3 Damage]
+
+[Oracle]: Your armor fully protected you. No damage taken.
+
+[Oracle]: The Skeleton looks alright...
+[Oracle]: It will be attacking you for: [5] damage on its turn
+
+[Health]: 9
+[Armor]:4
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 3 Damage)
+[2] Attack with your Bow (6 Damage) (0 Arrows)
+[3] Recover some health (4 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Skeleton with your sword for [10 Damage]
+
+[Oracle]: The Skeleton hits you. You take [1] Damage
+
+[Oracle]: The Skeleton looks weak...
+[Oracle]: It will be attacking you for: [5] damage on its turn
+
+[Health]: 8
+[Armor]:4
+
+[Oracle]: What do you want to do?
+
+[1] Attack with your Sword (1|10 + 3 Damage)
+[2] Attack with your Bow (6 Damage) (0 Arrows)
+[3] Recover some health (4 Recovery)
+[4] Give Up
+
+1
+==============================================
+[Oracle]: You hit the Skeleton with your sword for [7 Damage]
+
+[Oracle]: The Skeleton has passed...
+
+Gold: [27] + 16
+XP: [87] + 16
+Health: [8]
+[Oracle]: What would you like to do Hughmungus?
+
+[1] Venture forward on your quest
+[2] Visit a nearby town
+[3] Check your inventory
+[4] Abandon your quest
+
