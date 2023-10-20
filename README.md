@@ -1,4 +1,5 @@
-'# Hero-Quest
+'# Hero-Quest Ver. 1.5
+Final Version!!!
 
 This is my first game I have coded
 its a text based fantasy RPG 
