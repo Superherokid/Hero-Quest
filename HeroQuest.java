@@ -25,11 +25,10 @@ import java.util.Scanner;
  *  - UI changes
  *  - Alex play tested
  *  - Running away added
- *  - xp changes
  * 
  * Ver. 1.3
  *  - Level up system increases health
- *  - save state code
+ *  - save state password
  *  - new tutorial text
  * 
  * Ver. 1.4
@@ -62,6 +61,8 @@ public class HeroQuest {
         int mana = 3;
         int manaMax = 3;
         
+        
+        
         System.out.println("Welcome to Hero Quest! (Ver. 1.4)");
         System.out.println("This is a fantasy themed text based RPG ");
         System.out.println("What is your hero's name?");
@@ -80,7 +81,7 @@ public class HeroQuest {
             System.out.println("  Venture forward: Does a random combat event where you fight an enemy and are rewarded");
             System.out.println("  Go to the town: You can visit the town to upgrade all your gear, spells, purchase arrows, and sleep");
             System.out.println("  Check your inventory: Shows all your gear's stats and your player stats ");
-            System.out.println("  Abandon your quest: This is how to quit the game. You are givin a SaveState Code to return where you left off");
+            System.out.println("  Abandon your quest: This is how to save and quit the game. ");
             System.out.println();
             System.out.println("=============================================================================");
             System.out.println();
@@ -91,7 +92,7 @@ public class HeroQuest {
             System.out.println();
             System.out.println("=============================================================================");
             System.out.println();
-            System.out.println("]Options on your turn]: The enemies next attack is always revealed and you attack first");
+            System.out.println("[Options on your turn]: The enemies next attack is always revealed and you attack first");
             System.out.println("  Sword: 1 to 10 damage (1d10) plus your sword level ");
             System.out.println("  Bow: consistant damge every turn, no randomization but it uses arrows ");
             System.out.println("  Healing Spell: Recovers health equal to its current level, consumes Mana which is replenished at the end of each combat.");
@@ -99,12 +100,12 @@ public class HeroQuest {
             System.out.println();
             
         } else {
-            System.out.println("Do you have a SaveState Code? [yes] or [no]");
+            System.out.println("Do you have a SaveState Password? [yes] or [no]");
             String answer = keyboard.next();
             
             if (answer.equalsIgnoreCase("yes")) { //save state
                 System.out.println();
-                System.out.println("Please paste your SaveState code: ");
+                System.out.println("Please paste your SaveState Password: ");
                 sword = keyboard.nextInt();
                 strength = keyboard.nextInt();
                 bow = keyboard.nextInt();
@@ -146,7 +147,7 @@ public class HeroQuest {
         System.out.println("=====================================");
         
         // Turn choice and active boolean
-        boolean active = true;
+        int active = 0;
         int turn;
         
         // do while loop for your turn choice with a switch case inside
@@ -498,7 +499,7 @@ public class HeroQuest {
                                 strength = (strength + 1);
                                 System.out.println("[Strength]: " + (strength));
                                 System.out.println();
-                                active = false;
+                                active = 1;
                                }
                                 
                             } else {
@@ -753,7 +754,7 @@ public class HeroQuest {
                                        bow = (bow + 1);
                                        arrows = (arrows + 2);
                                        System.out.println("[Ethel]: That should help you out dear.");
-                                       System.out.println("[Ethel]: I threw in a couple arrows too, thank you");
+                                       System.out.println("[Ethel]: I threw in a couple arrows too, that work real good against armor");
                                        System.out.println("[Bow]: " + bow);
                                        System.out.println("[Arrows]: " + arrows);
                                        System.out.println("[Ethel]: Stay safe dear.");
@@ -878,6 +879,7 @@ public class HeroQuest {
                     System.out.println("[STATS]");
                     System.out.println("  [Health]: " + health);
                     System.out.println("  [Max Health]: " + healthMax);
+                    System.out.println("  [Strength]: " + strength);
                     System.out.println("  [Gold]: " + gold);
                     System.out.println("  [XP]: " + xp);
                     System.out.println("  [Level]: " + level);
@@ -908,7 +910,7 @@ public class HeroQuest {
                     manaMax = (manaMax * 7);
                     
                     //save state code
-                    System.out.println("Here is your SaveState Code: ");
+                    System.out.println("Here is your SaveState Password: ");
                     System.out.println();
                     System.out.println(sword +" "+ strength +" "+ bow +" "+ arrows +" "+ armor +" "+ health +" "+ healthMax +" "+ gold +" "+ xp +" "+ level +" "+ kills +" "+ healSpell +" "+ mana +" "+ manaMax);
                     System.out.println();
@@ -920,14 +922,16 @@ public class HeroQuest {
                 }
                 default: {
                     System.out.println("[Oracle]: That's not an option. Try again");
+                    active = 0;
                     break;
                 }
                     
             }   
-        } while (active);
+        } while (active == 0);
         
         // end game stuff, complete the quest
         
+        System.out.println("=======================================================");
         System.out.println(); 
         System.out.println("Thank you for playing Hero Quest Ver 1.4");
         System.out.println("I hope you have enjoyed your time playing");
@@ -951,12 +955,10 @@ public class HeroQuest {
                     manaMax = (manaMax * 7);
                     
                     //save state code
-                    System.out.println("Here is your SaveState Code: ");
+                    System.out.println("Here is your SaveState Password: ");
                     System.out.println();
                     System.out.println(sword +" "+ strength +" "+ bow +" "+ arrows +" "+ armor +" "+ health +" "+ healthMax +" "+ gold +" "+ xp +" "+ level +" "+ kills +" "+ healSpell +" "+ mana +" "+ manaMax);
                     System.out.println();
-        
-        
-        
+
     }
 }
