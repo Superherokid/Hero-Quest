@@ -13,7 +13,7 @@ Gameplay Loop: You can choose what you want to do on your quest. You can:
   Venture forward: Does a random combat event where you fight an enemy and are rewarded
   Go to the town: You can visit the town to upgrade all your gear, spells, purchase arrows, and sleep
   Check your inventory: Shows all your gear's stats and your player stats
-  Abandon your quest: This is how to quit the game.
+  Abandon your quest: This is how to save and quit the game.
 
 Combat: You fight a random enemy with random health and random attacks all dependent on its type
   Goblins: Regular enemy, nothing special
